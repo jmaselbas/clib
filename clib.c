@@ -42,7 +42,7 @@ fgetsz(char *s, int size, FILE *stream)
 }
 
 static int
-fexist(char *name)
+fexist(const char *name)
 {
 	FILE *f = fopen(name, "r");
 	if (f)
@@ -51,13 +51,13 @@ fexist(char *name)
 }
 
 struct clib_entry {
-	char *name;
+	const char *name;
 	uint32_t offset;
 	uint32_t size;
 };
 
 struct clib {
-	char *name;
+	const char *name;
 	uint32_t nr_entry;
 	struct clib_entry *entries;
 };
