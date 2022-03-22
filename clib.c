@@ -70,7 +70,7 @@ parse(FILE *f)
 	char magic[] = "CLIB\x1a\x1e";
 	char unknow[9];
 	char buf[PATH_MAX];
-	int i;
+	size_t i;
 
 	if (fread(&magic, strlen("CLIB\x1a\x1e"), 1, f) != 1)
 		die("invalid format: not enough data\n");
@@ -110,7 +110,7 @@ static void
 do_list(void)
 {
 	struct clib_entry e;
-	int i;
+	size_t i;
 
 	for (i = 0; i < clib.nr_entry; i++) {
 		e = clib.entries[i];
@@ -123,10 +123,9 @@ do_extract(FILE *f, int force)
 {
 	struct clib_entry e;
 	char chunk[4096];
-	size_t size, n;
+	size_t size, n, i;
 	FILE *p;
 	int ret = 0;
-	int i;
 
 	for (i = 0; i < clib.nr_entry; i++) {
 		e = clib.entries[i];
