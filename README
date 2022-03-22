@@ -1,0 +1,7 @@
+clib
+====
+
+clib a small utility to extract files from a `CLIB` archive.
+This implementation is rather incomplet.
+
+This is the format used by Adventure Game Studio.
